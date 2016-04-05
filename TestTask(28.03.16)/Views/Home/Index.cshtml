@@ -1,0 +1,58 @@
+﻿@model List<TestTask_28._03._16_.Models.Record>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    @if (User.IsInRole("Admin"))
+    {
+        <p class="page-header">Records all users.</p>
+    }
+    else{ <p class="page-header">My records.</p>}
+    <div id="list">
+        @foreach (TestTask_28._03._16_.Models.Record i in Model)
+        {
+            <div class="record">
+                <div class="recordAuthor">Author: @i.Author</div>
+                <div class="recordBody">
+                    <div class="theme">Theme: @i.Body.Theme</div>
+                    <div class="idea">Idea: @i.Body.Idea</div>
+                    <div class="note">Note: @i.Body.Note</div>
+                </div>
+                <div class="recordDate">Date of last edit:  @i.Date</div>
+                @if (i.RemovedByAdmin == true && User.IsInRole("Admin") == false)
+                {
+                    <p class="message">Removed by admin!!!</p>
+                }
+                @if (i.RemovedByAdmin == true && User.IsInRole("Admin"))
+                {
+                    <p class="message">The delete request sent.</p>
+                }
+                @if (i.RemovedByUser == true)
+                {
+                    <p class="message">Removed by user!!!</p>
+                }
+                <div class="additionalBlock">
+                    @if (i.RemovedByAdmin == true && User.IsInRole("Admin") == false)
+                    {
+                        @Ajax.ActionLink("Confirm", "Delete", new { id = i.ID }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "list" })
+                        <span>or</span>
+                        @Ajax.ActionLink("Cancel", "Restore", new { id = i.ID }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "list" })
+                    }
+                    else
+                    {
+                        if (i.RemovedByUser == true)
+                        {
+                            @Ajax.ActionLink("Restore", "Restore", new { id = i.ID }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "list" })
+                        }
+                        <a href="@Url.Action("Edit", new { id = i.ID})"><span class="glyphicon glyphicon-pencil"></span></a>
+                        @Ajax.ActionLink("Delete", "Delete", new { id = i.ID }, new AjaxOptions { HttpMethod = "GET", InsertionMode = InsertionMode.Replace, UpdateTargetId = "list" })
+                    }                   
+                </div>
+            </div>
+        }
+    </div>
+    <div class="addNewProduct">
+        <a href="@Url.Action("Add")"><span class="glyphicon glyphicon-plus"></span></a>
+    </div>
+</div>

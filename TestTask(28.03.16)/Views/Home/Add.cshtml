@@ -1,0 +1,45 @@
+﻿@model TestTask_28._03._16_.Models.Record
+
+<div class="jumbotron">
+    @using (Html.BeginForm("Add", "Home"))
+    {
+        @Html.ValidationSummary(true)
+        if (Model.Body != null)
+        {
+            @Html.HiddenFor(m => m.ID, new { Value = Model.ID })
+            @Html.HiddenFor(m => m.Author, new { Value = Model.Author })
+            @Html.HiddenFor(m => m.Date, new { Value = Model.Date })
+            <div class="left">
+                @Html.LabelFor(m => m.Body.Theme, new { @class = "myLabel" })<br />
+                @Html.LabelFor(m => m.Body.Idea, new { @class = "myLabel" })<br />
+                @Html.LabelFor(m => m.Body.Note, new { @class = "myLabel" })<br />
+            </div>
+            <div class="right">
+                @Html.TextAreaFor(m => m.Body.Theme, new { Value = Model.Body.Theme, @class = "myInput" })
+                @Html.ValidationMessageFor(m => m.Body.Theme)<br />
+                @Html.TextAreaFor(m => m.Body.Idea, new { Value = Model.Body.Idea, @class = "myInput" })
+                @Html.ValidationMessageFor(m => m.Body.Idea)<br />
+                @Html.TextAreaFor(m => m.Body.Note, new { Value = Model.Body.Note, @class = "myInput" })
+                @Html.ValidationMessageFor(m => m.Body.Note)<br />
+            </div>
+        }
+        else
+        {
+            <div class="left">
+                @Html.LabelFor(m => m.Body.Theme, new { @class = "myLabel" })<br />
+                @Html.LabelFor(m => m.Body.Idea, new { @class = "myLabel" })<br />
+                @Html.LabelFor(m => m.Body.Note, new { @class = "myLabel" })<br />
+            </div>
+            <div class="right">
+                @Html.TextAreaFor(m => m.Body.Theme, new { @class = "myInput"})
+                @Html.ValidationMessageFor(m => m.Body.Theme)<br />
+                @Html.TextAreaFor(m => m.Body.Idea, new { @class = "myInput" })
+                @Html.ValidationMessageFor(m => m.Body.Idea)<br />
+                @Html.TextAreaFor(m => m.Body.Note, new { @class = "myInput" })
+                @Html.ValidationMessageFor(m => m.Body.Note)<br />
+            </div>
+        }
+        <input type="submit" value="Save" class="myButton" />
+    }
+</div>
+

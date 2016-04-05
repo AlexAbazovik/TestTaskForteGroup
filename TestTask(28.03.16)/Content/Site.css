@@ -1,0 +1,146 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family:'Curlz MT';
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-top:160px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 545px;
+}
+
+.record{
+    border: solid 2px black;
+    border-radius:20px;
+    margin: 20px;
+}
+
+.glyphicon glyphicon-plus{
+    font-size:50px;
+}
+
+.left{
+    font-size:20px;
+    float:left;
+    width:33%;
+    text-align:right;
+}
+
+.right{
+    font-size:20px;
+    float:right;
+    text-align:left;
+    width:65%;
+}
+
+.myButton{
+    width:500px;
+    margin:40px;
+}
+
+
+.field-validation-error{
+    font-size:11px;
+    color:red;
+}
+
+.checkbox{
+    width:200px;
+    float:right;
+    margin-right:330px;
+}
+
+.lable{
+    color:white;
+    font-size:50px;
+    width:750px;
+    margin:auto;
+    margin-top:75px;
+    text-align:center;
+}
+
+.page-header{
+    font-size:60px;
+    margin-bottom:50px;
+}
+
+.recordAuthor{
+    float:left;
+    font-size: 22px;
+    margin-left: 20px;
+    font-family:'Brush Script MT';
+}
+
+.recordDate{
+    float:right;
+    font-size:10px;
+    font-family:'Tempus Sans ITC';
+    margin-right:30px;
+}
+
+.recordBody{
+    margin-top:40px;
+}
+
+.theme{
+    margin: 48px;
+    font-size: 40px;
+}
+
+.idea{
+    font-size:30px;
+}
+
+.note{
+    font-size:20px;
+    margin:30px;
+}
+
+.additionalBlock{
+    margin: 60px auto auto;
+    font-size: 40px;
+}
+
+.loginAndRegisterField{
+    font-size:25px;
+    font-style:inherit;
+}
+
+.myInput{
+    width: 500px;
+    height: 110px;
+    font-size: 15px;
+    margin-bottom:40px;
+}
+
+.myLabel{
+    margin-top:40px;
+    margin-bottom:65px;
+}
+
+.form-control{
+    width:250px;
+}
+
+.message{
+    color:red;
+    font-size: 35px;
+    margin-top: 60px;
+}
